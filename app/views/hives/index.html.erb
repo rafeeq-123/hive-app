@@ -1,0 +1,11 @@
+<h1><u>Our Index</u></h1>
+<% @hives.each do |hive| %>
+<h3>Bee Type: <%= hive.bee_type%></h3>
+<h3>Queen's Name: <%= hive.queen_name%></h3>	
+<h3>Honey Description: <%= hive.honey_description%></h3>
+<h3>Location:<%= hive.location%></h3>
+<%end%>
+<%=link_to "Create Record", new_hive_url%>
+
+<!-- our show page will have the values we create in the form -->
+<!-- we iterate over the hives(from our index action in our controller generally speaking we only have access to whats in our actions) -->

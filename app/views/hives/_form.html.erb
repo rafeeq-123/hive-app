@@ -1,0 +1,10 @@
+<%= form_for @hive do |f|%>
+<%= f.label :bee_type%>
+<%= f.text_field :bee_type%>
+<%= f.label :queen_name%>
+<%= f.text_field :queen_name%>
+<%= f.label :honey_description%>
+<%= f.text_area :honey_description%>
+<%=f.submit "create"%>
+<%end%>
+<!-- we use partials in this case to unclutter our views  -->
