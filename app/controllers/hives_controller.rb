@@ -34,9 +34,9 @@ class HivesController < ApplicationController
 
 	def update
 		find_params
-		hive.update(hive_params) #if we wanted to specify what we wanted the user could update we could and not use strong params
-		if hive.save
-			redirect_to hive
+		@hive.update(hive_params) #if we wanted to specify what we wanted the user could update we could and not use strong params
+		if @hive.save
+			redirect_to @hive
 		else
 			render "show" # we use render here for better user experience because render do not make a full http request
 		end		
