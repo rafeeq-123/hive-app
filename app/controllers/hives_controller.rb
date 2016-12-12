@@ -29,11 +29,11 @@ class HivesController < ApplicationController
 
 	#allows to find our record via the id like in the show so we can edit it.
 	def edit
-		find_params
+		find_params_by_id
 	end
 
 	def update
-		find_params
+		find_params_by_id
 		@hive.update(hive_params) #if we wanted to specify what we wanted the user could update we could and not use strong params
 		if @hive.save
 			redirect_to @hive
@@ -43,7 +43,7 @@ class HivesController < ApplicationController
 	end
 
 	def destroy
-		find_params
+		find_params_by_id
 		@hive.destroy
 		redirect_to @hives
 	end	
@@ -53,7 +53,7 @@ class HivesController < ApplicationController
 		params.require(:hive).permit(:bee_type, :queen_name, :honey_description, :location)
 	end
 
-	def find_params #this is a way to keep your actions DRY(Don't Repeat Yourself)
+	def find_params_by_id #this is a way to keep your actions DRY(Don't Repeat Yourself)
 		@hive = Hive.find(params[:id])
 	end
 end
